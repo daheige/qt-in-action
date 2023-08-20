@@ -9,9 +9,6 @@ qt in action notes
 3. 切换到 qt-examples/hello_qml 目录，执行`cargo run`就可以看到效果如下：
 ![](hello-qml.png)
 
-# rust编辑器选择
-使用vscode,clion都可以
-
 # rust-qt
 官方链接：https://github.com/rust-qt
 
