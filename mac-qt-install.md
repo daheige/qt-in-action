@@ -25,3 +25,6 @@ export CPPFLAGS="-I/usr/local/Cellar/qt/6.5.1_2/include"
 ```shell
 source ~/.bash_profile
 ```
+
+# qt-creator setting
+打开qt-creator填写qt安装路径`/usr/local/Cellar/qt/6.5.1_2`就完成了qt link设置
