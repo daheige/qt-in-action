@@ -1,6 +1,7 @@
 # mac os qt install
 ```shell
 brew install qt
+brew install qt-creator
 ```
 安装好的目录在：`/usr/local/Cellar/qt`中
 ```shell
