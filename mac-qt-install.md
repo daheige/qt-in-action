@@ -3,6 +3,12 @@
 brew install qt
 brew install qt-creator
 ```
+当看到下面这个表示安装好了
+```
+==> Installing Cask qt-creator
+==> Moving App 'Qt Creator.app' to '/Applications/Qt Creator.app'
+🍺  qt-creator was successfully installed!
+```
 安装好的目录在：`/usr/local/Cellar/qt`中
 ```shell
 % ls
