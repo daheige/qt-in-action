@@ -16,3 +16,6 @@ qt in action notes
 
 # rust-qt核心组件库
 https://github.com/rust-qt/ritual
+
+# rust-qt 练手实战
+https://juejin.cn/post/7227624340232208443
