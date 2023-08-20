@@ -21,7 +21,7 @@ export PATH="/usr/local/Cellar/qt/6.5.1_2/bin:$PATH"
 export LDFLAGS="-L/usr/local/Cellar/qt/6.5.1_2/lib"
 export CPPFLAGS="-I/usr/local/Cellar/qt/6.5.1_2/include"
 ```
-根据对应的qt帮忙设置即可
+保存:wq 之后，再执行如下命令生效
 ```shell
 source ~/.bash_profile
 ```
