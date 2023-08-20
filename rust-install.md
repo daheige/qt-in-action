@@ -58,3 +58,6 @@
     git-fetch-with-cli=true
     [http]
     check-revoke = false
+
+# rust编辑器选择
+使用vscode,clion都可以

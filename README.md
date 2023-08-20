@@ -11,3 +11,11 @@ qt in action notes
 
 # rust编辑器选择
 使用vscode,clion都可以
+
+# rust-qt
+官方链接：https://github.com/rust-qt
+
+官方examples: https://github.com/rust-qt/examples
+
+# rust-qt核心组件库
+https://github.com/rust-qt/ritual
