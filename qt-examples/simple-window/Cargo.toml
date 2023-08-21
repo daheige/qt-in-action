@@ -1,0 +1,13 @@
+[package]
+name = "simple-window"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+qt_widgets = "0.5.0"
+cpp_core = "0.6.0"
+qt_core = "0.5.0"
+qt_gui = "0.5.0"
+qt_ui_tools = "0.5.0"
