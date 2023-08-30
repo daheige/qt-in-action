@@ -21,6 +21,7 @@ https://github.com/rust-qt/ritual
 https://juejin.cn/post/7227624340232208443
 
 # cxx-qt
+qt6安装请参考：mac-qt6-install.md
 - 官方地址： https://github.com/KDAB/cxx-qt
 - cxx-qt使用手册：https://kdab.github.io/cxx-qt/book/
 - cxx-qt中文使用参考：https://github.com/jason-yau/cxx-qt-book/blob/main/src/SUMMARY.md
@@ -30,7 +31,7 @@ https://juejin.cn/post/7227624340232208443
 
 # 关于rust qt绑定选择
 - rust-qt目前只支持qt5.15版本，并且暂时没维护了
-- cxx-qt 是KDAB出品的，跨平台支持linux,macos,windows等不同的操作系统，它支持cmake和cargo两种构建方式（cargo这种方式，无任何c/c++代码依赖），同时支持c/c++和rust相互调用和代码生成，Safe interop between Rust and Qt
+- cxx-qt 目前最低支持qt5.15版本，它是KDAB出品的，跨平台支持linux,macos,windows等不同的操作系统，它支持cmake和cargo两种构建方式（cargo这种方式，无任何c/c++代码依赖），同时支持c/c++和rust相互调用和代码生成，Safe interop between Rust and Qt
 - gtk-rs 相对来说比较复杂，不大建议使用，在跨平台的绑定支持还不是很成熟
 
 综合对比，推荐使用cxx-qt这个库，需要懂一些c/c++基础，比如说header头引入以及c++简单的语法，能看懂一部分c++代码（这块主要是qt接口函数，api调用需要）。
