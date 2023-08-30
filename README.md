@@ -25,7 +25,7 @@ https://juejin.cn/post/7227624340232208443
 - cxx-qt使用手册：https://kdab.github.io/cxx-qt/book/
 - cxx-qt中文使用参考：https://github.com/jason-yau/cxx-qt-book/blob/main/src/SUMMARY.md
 - cxx-qt实战案例：https://dev.to/logrocket/build-a-desktop-app-with-qt-and-rust-1cfi
-- cxx-qt架构设计：
+- cxx-qt架构设计，是非常漂亮且清晰的（强烈推荐）
 <img width="762" alt="image" src="https://github.com/daheige/qt-in-action/assets/9988859/f24e56f1-e129-46d0-a27b-2608b2ae69b3">
 
 # 关于rust qt绑定选择
