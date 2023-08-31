@@ -1,4 +1,4 @@
-# mac os qt install
+# mac os qt6 install
 ```shell
 brew install qt
 brew install qt-creator
@@ -15,8 +15,18 @@ brew安装的qt版本也有可能是高版本，更具对应的目录执行 env 
 % ls
 6.5.1_3
 ```
+## 安装qt必要的工具链
+```shell
+brew install llvm cmake make gcc mold
+```
 
-# env setting
+## qt link 绑定
+这一步需要做，不然cxx-qt找不到qt相关的路径
+```shell
+brew link qt
+```
+
+# 设置 qt 相关的环境变量
 vim ~/.bash_profile
 
 ```shell
