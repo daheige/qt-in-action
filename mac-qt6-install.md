@@ -1,7 +1,7 @@
 # mac os qt6 install
 ```shell
 brew install qt
-brew install qt-creator
+brew install qt-creator # 可选，如果需要用c++开发qt项目，就需要安装qt-creator
 ```
 当看到下面这个表示安装好了
 ```
@@ -57,5 +57,6 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 source ~/.bash_profile
 ```
 
-# qt-creator setting
+# qt-creator 配置（可选）
+如果需要用c++开发qt项目，就需要qt link
 打开qt-creator填写qt安装路径`/usr/local/Cellar/qt/6.5.1_3`就完成了qt link设置
