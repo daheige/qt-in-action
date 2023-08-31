@@ -4,7 +4,12 @@ brew install qt@5
 ```
 
 安装好的目录在：`/usr/local/opt/qt@5`中
-# env setting
+# 安装qt必要的工具链
+```shell
+brew install llvm cmake make gcc mold
+```
+
+# qt 环境变量配置
 vim ~/.bash_profile
 
 ```shell
@@ -35,7 +40,8 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 source ~/.bash_profile
 ```
 
-# qt-creator install
+# qt-creator 安装(可选）
+如果使用c++开发qt项目，就需要安装qt-creator
 ```shell
 brew install qt-creator
 ```
