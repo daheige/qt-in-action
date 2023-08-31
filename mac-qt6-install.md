@@ -17,7 +17,7 @@ brew安装的qt版本也有可能是高版本，更具对应的目录执行 env 
 ```
 ## 安装qt必要的工具链
 ```shell
-brew install llvm cmake make gcc mold
+brew install llvm cmake make gcc mold clang-format
 ```
 
 ## qt link 绑定
