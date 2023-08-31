@@ -22,6 +22,15 @@ https://juejin.cn/post/7227624340232208443
 
 # cxx-qt
 qt6安装请参考：mac-qt6-install.md
+
+cxx-qt必须安装的工具：https://github.com/KDAB/cxx-qt#building
+```shell
+brew install qt
+brew install llvm cmake make gcc mold
+brew link qt # qt link绑定
+```
+安装后这些工具后，需要进一步设置qt环境变量，请参考 mac-qt6-install.md
+
 - 官方地址： https://github.com/KDAB/cxx-qt
 - cxx-qt使用手册：https://kdab.github.io/cxx-qt/book/
 - cxx-qt中文使用参考：https://github.com/jason-yau/cxx-qt-book/blob/main/src/SUMMARY.md
