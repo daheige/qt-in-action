@@ -6,7 +6,7 @@ brew install qt@5
 安装好的目录在：`/usr/local/opt/qt@5`中
 # 安装qt必要的工具链
 ```shell
-brew install llvm cmake make gcc mold
+brew install llvm cmake make gcc mold clang-format
 ```
 
 # qt 环境变量配置
