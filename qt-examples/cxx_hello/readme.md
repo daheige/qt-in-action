@@ -159,6 +159,24 @@ cargo run # 会开始执行构建并运行
 # cxx-qt 文档
 - 官方地址： https://github.com/KDAB/cxx-qt
 - cxx-qt使用手册：https://kdab.github.io/cxx-qt/book/
+- qt: https://kdab.github.io/cxx-qt/book/concepts/qt.html
+
+# cxx-qt 包装 c++相关的类型
+Types
+
+Do note though that any fields marked as #[qproperty] must be types that CXX can translate to C++ types. In our case that means:
+
+    - number: i32 -> ::std::int32_t number // i32类型
+    - string: QString -> QString string    // string类型
+For i32, CXX-Qt already knows how to translate it. A QString however is unknown to CXX. Luckily, the cxx_qt_lib crate already wraps many Qt types for us. We can just import them like any other CXX type:
+```rust
+    // 要使用c++ QString类型，需要在rust代码中引入这个c++外部的类型
+    unsafe extern "C++" {
+        include!("cxx-qt-lib/qstring.h");
+        type QString = cxx_qt_lib::QString;
+    }
+```
+For more details on the available types, see the: https://kdab.github.io/cxx-qt/book/concepts/types.html
 
 # qml 语法
 - https://doc.qt.io/qt-6/qmltypes.html
