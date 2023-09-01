@@ -28,7 +28,12 @@ Window {
 
         Button {
             text: "Say Hello!"
-            onClicked: hello.sayHello()
+            onClicked: {
+                // 支持js语法
+                var name = "js";
+                console.log("name: ",name);
+                hello.sayHello();
+            }
         }
     }
 }

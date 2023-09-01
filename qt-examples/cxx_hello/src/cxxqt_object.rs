@@ -9,7 +9,7 @@ mod my_object {
     impl qobject::Hello {
         #[qinvokable]
         pub fn say_hello(&self) {
-            println!("Hello world!")
+            println!("Hello world!");
         }
     }
 }
