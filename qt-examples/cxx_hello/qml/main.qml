@@ -35,13 +35,13 @@ Window {
             onClicked: {
                 // 支持js es5/es6语法
                 let name = "js";
-                console.log("name: ",name);
+                console.log("name: ", name);
 
                 // 生成m-n的随机数字
                 let m = 1;
                 let n = 100;
                 let rnd = Math.floor(Math.random() * (n - m)) + m;
-                console.log("gen js random number: ",rnd);
+                console.log("gen js random number: ", rnd);
 
                 // 调用Hello上面的say_hello方法，这里的say_hello需要采用驼峰格式
                 hello.sayHello();
