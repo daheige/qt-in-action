@@ -25,6 +25,10 @@ Window {
         anchors.verticalCenter: parent.verticalCenter
         /* space between widget */
         spacing: 10
+        Label {
+            text: "please click this button"
+            font.bold: true
+        }
 
         Button {
             text: "Say Hello!"
