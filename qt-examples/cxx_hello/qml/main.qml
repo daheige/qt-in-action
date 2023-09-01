@@ -33,14 +33,14 @@ Window {
         Button {
             text: "Say Hello!"
             onClicked: {
-                // 支持js语法
-                var name = "js";
+                // 支持js es5/es6语法
+                let name = "js";
                 console.log("name: ",name);
 
                 // 生成m-n的随机数字
-                var m = 1;
-                var n = 100;
-                var rnd = Math.floor(Math.random() * (n - m)) + m;
+                let m = 1;
+                let n = 100;
+                let rnd = Math.floor(Math.random() * (n - m)) + m;
                 console.log("gen js random number: ",rnd);
 
                 // 调用Hello上面的say_hello方法，这里的say_hello需要采用驼峰格式
