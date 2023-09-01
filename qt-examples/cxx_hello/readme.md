@@ -162,6 +162,7 @@ cargo run # 会开始执行构建并运行
 
 # qml 语法
 - https://doc.qt.io/qt-6/qmltypes.html
+- https://doc.qt.io/qt-6/qtquickcontrols-customize.html#customization-reference
 - https://juejin.cn/post/6920100328461795342
 
 # qml 支持js语法
