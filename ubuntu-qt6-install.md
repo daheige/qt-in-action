@@ -1,6 +1,7 @@
 # ubuntu系统安装qt
 ```shell
 sudo apt install qt6-base-dev qt6-declarative-dev
+sudo apt install make cmake gcc
 
 # Fedora
 # sudo dnf install qt6-qtbase-devel qt6-qtdeclarative-devel
