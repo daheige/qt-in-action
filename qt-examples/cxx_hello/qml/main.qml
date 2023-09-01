@@ -36,6 +36,14 @@ Window {
                 // 支持js语法
                 var name = "js";
                 console.log("name: ",name);
+
+                // 生成m-n的随机数字
+                var m = 1;
+                var n = 100;
+                var rnd = Math.floor(Math.random() * (n - m)) + m;
+                console.log("gen js random number: ",rnd);
+
+                // 调用Hello上面的say_hello方法，这里的say_hello需要采用驼峰格式
                 hello.sayHello();
             }
         }
