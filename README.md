@@ -23,6 +23,7 @@ https://juejin.cn/post/7227624340232208443
 # cxx-qt
 - cxx-qt必须安装的工具：https://github.com/KDAB/cxx-qt#building
 - qt6安装请参考：mac-qt6-install.md
+- cxx-qt 完整的demo: qt-examples/cxx_hello
 
 ## cxx-qt 相关文档
 - 官方地址： https://github.com/KDAB/cxx-qt

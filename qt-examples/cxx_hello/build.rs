@@ -1,4 +1,6 @@
 use cxx_qt_build::CxxQtBuilder;
+
+// cxx_hello 构建之前执行的动作
 fn main() {
     CxxQtBuilder::new()
         // Link Qt's Network library
