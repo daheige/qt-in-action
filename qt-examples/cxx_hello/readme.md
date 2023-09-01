@@ -160,6 +160,10 @@ cargo run # 会开始执行构建并运行
 - 官方地址： https://github.com/KDAB/cxx-qt
 - cxx-qt使用手册：https://kdab.github.io/cxx-qt/book/
 
+# qml 语法
+- https://doc.qt.io/qt-6/qmltypes.html
+- https://juejin.cn/post/6920100328461795342
+
 # qml 支持js语法
 ```qml
 // qml/main.qml
@@ -208,3 +212,54 @@ this first cxx-qt demo
 qml: name:  js
 Hello world!
 ```
+
+# 实现md5功能
+在cxxqt_object.rs添加如下代码：
+```rust
+ // 下面的Rot 是实现md5字符串加密功能
+    // 引入c++ cxx_qt_lib 包中的rust QString
+    unsafe extern "C++" {
+        include!("cxx-qt-lib/qstring.h");
+        type QString = cxx_qt_lib::QString;
+    }
+
+    #[cxx_qt::qobject(qml_uri = "hello", qml_version = "1.0")]
+    #[derive(Default)]
+    pub struct Rot {
+        #[qproperty]
+        plain: QString,
+        #[qproperty]
+        secret: QString,
+    }
+
+    impl qobject::Rot {
+        // 实现md5加密
+        #[qinvokable]
+        pub fn md5(&self, plain: &QString) -> QString {
+            let b = plain.to_string();
+            if b.is_empty() {
+                return QString::from("plain is empty");
+            }
+
+            let digest = md5::compute(b);
+            let md5_str = format!("{:x}", digest); // 生成md5 string
+            println!("plain:{} md5 string:{}", plain, md5_str);
+            let result = format!("md5 string:{}", md5_str);
+            QString::from(&result)
+        }
+    }
+```
+并在Cargo.toml添加md5包
+```toml
+md5 = "0.7.0"
+```
+qml/main.qml引入必要的qt组件
+```qml
+// 引入qt基本组件
+import QtQuick 2.12;
+import QtQuick.Controls 2.12;
+import QtQuick.Window 2.12;
+import QtQuick.Controls.Basic;
+```
+添加TextArea后，就可以执行 `cargo run` 就会弹出窗口
+![](cxx-md5.jpg)

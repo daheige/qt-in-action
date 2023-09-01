@@ -17,4 +17,3 @@ fn main() {
         app.exec();
     }
 }
-

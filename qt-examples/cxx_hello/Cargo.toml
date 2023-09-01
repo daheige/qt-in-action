@@ -9,6 +9,7 @@ edition = "2021"
 cxx = "1.0.107"
 cxx-qt = "0.5.3"
 cxx-qt-lib = "0.5.3"
+md5 = "0.7.0"
 
 [build-dependencies]
 cxx-qt-build = "0.5.3"
