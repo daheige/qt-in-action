@@ -1,14 +1,22 @@
-# ubuntu20.04 系统安装qt
+# ubuntu 18.04 or 20.04 系统安装qt
+https://wiki.qt.io/Install_Qt_5_on_Ubuntu
+
 ```shell
+sudo apt update -y
 sudo apt install -y make cmake gcc g++ llvm
 sudo apt install -y libssl-dev zlib1g-dev
 sudo apt install -y build-essential libgl1-mesa-dev
+sudo apt install -y libfontconfig1
+sudo apt install -y mesa-common-dev 
+sudo apt install -y libglu1-mesa-dev
 sudo apt install -y libxkbcommon-dev
 sudo apt install -y libvulkan-dev
-sudo apt install -y wget vim vi bash curl
+sudo apt install -y wget vim bash curl
 
 # install qt5
 sudo apt install -y qt5-default
+
+# 安装qt5相关的依赖
 sudo apt install -y qt5-qmake
 sudo apt install -y qtdeclarative5-dev
 sudo apt install -y qml-module-qtquick-controls
@@ -29,4 +37,5 @@ sudo apt install -y qml-module-qtwebengine
 sudo apt install -y qml-module-qtwebview
 sudo apt install -y qml-module-qtwebchannel
 sudo apt install -y qml*
+sudo update-mime-database /usr/share/mime 
 ```
