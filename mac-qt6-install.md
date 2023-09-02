@@ -31,7 +31,7 @@ vim ~/.bash_profile
 
 ```shell
 # 分别对 LDFLAGS CPPFLAGS PKG_CONFIG_PATH 配置
-export QT_HOME=/usr/local/Cellar/qt/6.5.1_3
+export QT_HOME=/usr/local/Cellar/qt/6.5.1_3 # qt安装目录
 
 export LDFLAGS="-L$QT_HOME/lib"
 # 对于 LDFLAGS 如果系统中本身就有设置值的话
