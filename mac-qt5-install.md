@@ -3,7 +3,7 @@
 brew install qt@5
 ```
 
-安装好的目录在：`/usr/local/opt/qt@5`中
+安装好的目录在：`/usr/local/opt/qt@5`中，对应安装的版本 5.15.10
 # 安装qt必要的工具链
 ```shell
 brew install llvm cmake make gcc mold clang-format
@@ -14,24 +14,24 @@ vim ~/.bash_profile
 
 ```shell
 # 分别对 LDFLAGS CPPFLAGS PKG_CONFIG_PATH 配置
-
-export LDFLAGS="-L/usr/local/opt/qt@5/lib"
+export QT_HOME=/usr/local/opt/qt@5 # qt安装目录
+export LDFLAGS="-L$QT_HOME/lib"
 # 对于 LDFLAGS 如果系统中本身就有设置值的话
-# 请通过 export LDFLAGS="$LDFLAGS -L/usr/local/opt/qt@5/lib" 方式设置
+# 请通过 export LDFLAGS="$LDFLAGS -L$QT_HOME/lib" 方式设置
 
 export LDFLAGS="$LDFLAGS -L/usr/local/opt/llvm/lib"
 export LDFLAGS="$LDFLAGS -L/usr/local/opt/llvm/lib/c++ -Wl,-rpath,/usr/local/opt/llvm/lib/c++"
 
 # 对于 CPPFLAGS 如果系统中本身就有设置值的话
-# 请通过 export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/qt@5/include" 方式配置
-export CPPFLAGS="-I/usr/local/opt/qt@5/include"
+# 请通过 export CPPFLAGS="$CPPFLAGS -I$QT_HOME/include" 方式配置
+export CPPFLAGS="-I$QT_HOME/include"
 export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/llvm/include"
 
 # 对于 PKG_CONFIG_PATH 设置，如果系统中本身就有的话
-# 请通过 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/qt@5/lib/pkgconfig" 方式设置
-export PKG_CONFIG_PATH="/usr/local/opt/qt@5/lib/pkgconfig"
+# 请通过 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$QT_HOME/lib/pkgconfig" 方式设置
+export PKG_CONFIG_PATH="$QT_HOME/lib/pkgconfig"
 
-export PATH="/usr/local/opt/qt@5/bin:$PATH"
+export PATH="$QT_HOME/bin:$PATH"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 ```
 
