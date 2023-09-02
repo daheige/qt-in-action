@@ -1,10 +1,11 @@
 # ubuntu系统安装qt
 ```shell
-sudo apt install -y make cmake gcc g++ llvm molds
+sudo apt install -y make cmake gcc g++ llvm
 sudo apt install -y libssl-dev zlib1g-dev
 sudo apt install -y build-essential libgl1-mesa-dev
 sudo apt install -y libxkbcommon-dev
 sudo apt install -y libvulkan-dev
+sudo apt install -y wget vim vi bash curl
 
 # Fedora
 # sudo dnf install qt6-qtbase-devel qt6-qtdeclarative-devel
