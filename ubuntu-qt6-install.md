@@ -2,7 +2,9 @@
 ```shell
 sudo apt install -y make cmake gcc g++ llvm molds
 sudo apt install -y libssl-dev zlib1g-dev
-sudo apt-get install -y build-essential libgl1-mesa-dev
+sudo apt install -y build-essential libgl1-mesa-dev
+sudo apt install -y libxkbcommon-dev
+sudo apt install -y libvulkan-dev
 
 # Fedora
 # sudo dnf install qt6-qtbase-devel qt6-qtdeclarative-devel
