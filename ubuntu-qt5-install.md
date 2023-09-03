@@ -3,14 +3,15 @@ https://wiki.qt.io/Install_Qt_5_on_Ubuntu
 
 ```shell
 sudo apt update -y
-sudo apt install -y make cmake gcc g++ llvm
+sudo apt install -y make cmake gcc g++ llvm clang
 sudo apt install -y libssl-dev zlib1g-dev
-sudo apt install -y build-essential libgl1-mesa-dev
+sudo apt install -y build-essential libgl1-mesa-dev gdb
 sudo apt install -y libfontconfig1
 sudo apt install -y mesa-common-dev 
 sudo apt install -y libglu1-mesa-dev
 sudo apt install -y libxkbcommon-dev
 sudo apt install -y libvulkan-dev
+sudo apt install -y freeglut3-dev
 sudo apt install -y wget vim bash curl
 
 # install qt5
