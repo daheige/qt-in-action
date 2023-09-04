@@ -39,6 +39,9 @@ https://juejin.cn/post/7227624340232208443
 # 关于rust qt绑定选择
 - rust-qt目前只支持qt5版本，并且暂时没维护了
 - cxx-qt 目前最低支持qt5.15版本，它是KDAB出品的，跨平台支持linux,macos,windows等不同的操作系统，它支持cmake和cargo两种构建方式（cargo这种方式，通过rust cxx-qt-build工具生成c++代码，编译生成二进制文件），同时支持c/c++和rust相互调用和代码生成，Safe interop between Rust and Qt
-- gtk-rs 相对来说比较复杂，不大建议使用，在跨平台的绑定支持还不是很成熟
+- gtk-rs 相对来说文档是比较全面的，gtk底层完全基于c语言编写的，跨平台，支持linux,mac os,windows等不同平台，目前gtk-rs目前已经到了[gtk-rs4](https://github.com/gtk-rs/gtk4-rs)
+  开发文档 https://gtk-rs.org/gtk4-rs/stable/latest/book/introduction.html https://www.cnblogs.com/nsfoxer/p/16530314.html 是比较全面的。
 
-综合对比，推荐使用cxx-qt这个库，需要懂一些c/c++基础，比如说header头引入以及c++简单的语法，能看懂一部分c++代码（这块主要是qt接口函数，api调用需要）。
+综合对比
+  - 推荐使用cxx-qt这个库，需要懂一些c/c++基础，比如说header头引入以及c++简单的语法，能看懂一部分c++代码（这块主要是qt接口函数，api调用需要）。
+  - 另外，如果对于c有一定的基础，选择gtk-rs也是不错的选择，开发文档对于开发人员来说，非常友好，也值得推荐。
