@@ -6,7 +6,7 @@ sudo apt install -y make gcc g++ clang++ llvm clang cmake
 sudo snap install cmake --classic # 升级到最新的cmake
 
 # 安装相关依赖
-sudo apt install -y libssl-dev zlib1g-dev
+sudo apt install -y pkg-config libssl-dev zlib1g-dev
 sudo apt install -y build-essential libgl1-mesa-dev gdb
 sudo apt install -y libxkbcommon-dev
 sudo apt install -y libvulkan-dev

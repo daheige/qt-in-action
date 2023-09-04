@@ -8,7 +8,7 @@ sudo apt install -y make gcc g++ clang++ llvm clang cmake
 sudo snap install cmake --classic # 升级到最新的cmake
 
 # 安装qt5依赖的组件
-sudo apt install -y libssl-dev zlib1g-dev
+sudo apt install -y pkg-config libssl-dev zlib1g-dev
 sudo apt install -y build-essential libgl1-mesa-dev gdb
 sudo apt install -y libfontconfig1
 sudo apt install -y mesa-common-dev 
@@ -19,9 +19,9 @@ sudo apt install -y freeglut3-dev
 sudo apt install -y wget vim bash curl
 
 # 安装 qt5工具
-sudo apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
-sudo apt install -y qt5-default
 sudo apt install -y qt5*
+sudo apt install -y qt5-default
+sudo apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
 
 # 安装qt5 qml相关的依赖
 sudo apt install -y qtdeclarative5-dev
