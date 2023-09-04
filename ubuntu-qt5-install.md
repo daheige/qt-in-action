@@ -2,8 +2,12 @@
 https://wiki.qt.io/Install_Qt_5_on_Ubuntu
 
 ```shell
+# 安装cmake make gcc g++ clang++ clang llvm
 sudo apt update -y
-sudo apt install -y make cmake gcc g++ llvm clang
+sudo apt install -y make gcc g++ clang++ llvm clang cmake
+sudo snap install cmake --classic # 升级到最新的cmake
+
+# 安装qt5依赖的组件
 sudo apt install -y libssl-dev zlib1g-dev
 sudo apt install -y build-essential libgl1-mesa-dev gdb
 sudo apt install -y libfontconfig1
@@ -14,11 +18,12 @@ sudo apt install -y libvulkan-dev
 sudo apt install -y freeglut3-dev
 sudo apt install -y wget vim bash curl
 
-# install qt5
+# 安装 qt5工具
+sudo apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
 sudo apt install -y qt5-default
+sudo apt install -y qt5*
 
-# 安装qt5相关的依赖
-sudo apt install -y qt5-qmake
+# 安装qt5 qml相关的依赖
 sudo apt install -y qtdeclarative5-dev
 sudo apt install -y qml-module-qtquick-controls
 sudo apt install -y qml-module-qtquick-controls2
@@ -38,5 +43,10 @@ sudo apt install -y qml-module-qtwebengine
 sudo apt install -y qml-module-qtwebview
 sudo apt install -y qml-module-qtwebchannel
 sudo apt install -y qml*
-sudo update-mime-database /usr/share/mime 
+sudo update-mime-database /usr/share/mime
+```
+
+# 安装qtcreator (可选)
+```shell
+sudo apt install qtcreator
 ```
