@@ -4,7 +4,7 @@ https://wiki.qt.io/Install_Qt_5_on_Ubuntu
 ```shell
 # 安装cmake make gcc g++ clang++ clang llvm
 sudo apt update -y
-sudo apt install -y make gcc g++ llvm clang cmake
+sudo apt install -y make gcc g++ llvm clang cmake vim
 #sudo snap install cmake --classic # 升级到最新的cmake
 
 # 安装qt5依赖的组件
