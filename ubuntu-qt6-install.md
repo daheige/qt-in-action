@@ -2,8 +2,8 @@
 ```shell
 # 安装cmake make gcc g++ clang++ clang llvm
 sudo apt update -y
-sudo apt install -y make gcc g++ clang++ llvm clang cmake
-sudo snap install cmake --classic # 升级到最新的cmake
+sudo apt install -y make gcc g++ llvm clang cmake
+#sudo snap install cmake --classic # 升级到最新的cmake
 
 # 安装相关依赖
 sudo apt install -y pkg-config libssl-dev zlib1g-dev
