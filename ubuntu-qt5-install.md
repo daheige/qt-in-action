@@ -4,8 +4,7 @@ https://wiki.qt.io/Install_Qt_5_on_Ubuntu
 ```shell
 # 安装cmake make gcc g++ clang++ clang llvm
 sudo apt update -y
-sudo apt install -y make gcc g++ llvm clang cmake vim
-#sudo snap install cmake --classic # 升级到最新的cmake
+sudo apt install -y make gcc g++ llvm clang cmake vim clang-format git curl wget vim bash
 
 # 安装qt5依赖的组件
 sudo apt install -y build-essential libgl1-mesa-dev gdb
@@ -16,7 +15,6 @@ sudo apt install -y libglu1-mesa-dev
 sudo apt install -y libxkbcommon-dev
 sudo apt install -y libvulkan-dev
 sudo apt install -y freeglut3-dev
-sudo apt install -y wget vim bash curl
 
 # 安装 qt5工具
 sudo apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
