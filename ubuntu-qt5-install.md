@@ -8,8 +8,8 @@ sudo apt install -y make gcc g++ llvm clang cmake vim
 #sudo snap install cmake --classic # 升级到最新的cmake
 
 # 安装qt5依赖的组件
-sudo apt install -y pkg-config libssl-dev zlib1g-dev
 sudo apt install -y build-essential libgl1-mesa-dev gdb
+sudo apt install -y pkg-config libssl-dev zlib1g-dev
 sudo apt install -y libfontconfig1
 sudo apt install -y mesa-common-dev 
 sudo apt install -y libglu1-mesa-dev
