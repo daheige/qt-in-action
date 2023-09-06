@@ -19,9 +19,9 @@ sudo apt install -y freeglut3-dev
 sudo apt install -y wget vim bash curl
 
 # 安装 qt5工具
-sudo apt install -y qt5*
-sudo apt install -y qt5-default
 sudo apt install -y qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
+sudo apt install -y qt5-default
+sudo apt install -y qt5*
 
 # 安装qt5 qml相关的依赖
 sudo apt install -y qtdeclarative5-dev
