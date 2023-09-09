@@ -5,3 +5,6 @@ rust-qt:
 
 cxx-qt:
 - cxx_hello
+
+qmetaobject-rs:
+- qmetaobject-demo
