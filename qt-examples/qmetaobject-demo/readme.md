@@ -3,6 +3,10 @@
 - 它是一个rust qt框架，使每个人都可以用Rust创建Qt/QML应用程序。
 - 它通过在编译时构建QMetaObjects、注册QML类型(QQmlExtensionPlugins使用是可选的，根据实际情况使用)和提供习惯的包装器来实现这一点。
 
+# qmetaobject-rs 实战demo
+https://github.com/daheige/qt-in-action/tree/main/qt-examples
+![](qmetaobject-demo.png)
+
 # 官方地址
 https://github.com/woboq/qmetaobject-rs
 核心组成：
