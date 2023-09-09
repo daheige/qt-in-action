@@ -40,6 +40,8 @@ devtoolset-7对应gcc7.x.x版本
 devtoolset-8对应gcc8.x.x版本
 devtoolset-9对应gcc9.x.x版本
 devtoolset-10对应gcc10.x.x版本
+
+这里我安装的gcc是 gcc 10版本
 ```shell
 sudo yum install -y centos-release-scl
 sudo yum install -y devtoolset-10-gcc* devtoolset-10-libstdc++*
@@ -47,15 +49,51 @@ sudo yum install -y devtoolset-10
 ```
 激活gcc版本，使其生效
 ```shell
+sudo scl enable devtoolset-10 bash
 source /opt/rh/devtoolset-10/enable
+
 # 备份原来的gcc
 sudo mv /usr/bin/gcc /usr/bin/gcc-4.8.5
 # 建立软链接
 sudo ln -s /opt/rh/devtoolset-10/root/bin/gcc /usr/bin/gcc
+
+# 备份原来的g++
+sudo mv /usr/bin/g++ /usr/bin/g++-4.8.5
+sudo ln -s /opt/rh/devtoolset-10/root/bin/g++ /usr/bin/g++
+
+# 备份原来的c++
+sudo mv /usr/bin/c++ /usr/bin/c++-4.8.5
+sudo ln -s /opt/rh/devtoolset-10/root/bin/c++ /usr/bin/c++
 ```
+
 安装相关依赖
 ```shell
-yum -y install mesa-libGL-devel mesa-libGLU-devel freeglut-devel 
+sudo yum -y install mesa-libGL-devel mesa-libGLU-devel freeglut-devel 
+```
+查看gcc,g++,c++版本
+```shell
+# gcc --version
+gcc (GCC) 10.2.1 20210130 (Red Hat 10.2.1-11)
+Copyright (C) 2020 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+# g++ --version
+g++ (GCC) 10.2.1 20210130 (Red Hat 10.2.1-11)
+Copyright (C) 2020 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+# c++ --version
+c++ (GCC) 10.2.1 20210130 (Red Hat 10.2.1-11)
+Copyright (C) 2020 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
+重新安装下面的软件：
+```shell
+sudo yum install -y clang gcc gcc-c++ cmake make llvm openssl-devel zlib-devel automake
 ```
 
 4. 桌面环境安装
