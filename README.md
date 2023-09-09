@@ -37,6 +37,8 @@ https://juejin.cn/post/7227624340232208443
 <img width="762" alt="image" src="https://github.com/daheige/qt-in-action/assets/9988859/f24e56f1-e129-46d0-a27b-2608b2ae69b3">
 
 # qmetaobject-rs
+Requires Qt >= 5.8
+参考文档：
 - https://github.com/woboq/qmetaobject-rs
 - https://woboq.com/blog/qmetaobject-from-rust.html
 - https://lib.rs/crates/qmetaobject
