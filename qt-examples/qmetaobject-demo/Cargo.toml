@@ -1,0 +1,17 @@
+[package]
+name = "qmetaobject-demo"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+qmetaobject="*"  # qmetaobject
+qttypes = { version = "0.2.9", features = [ "qtquick"] }
+cstr="0.2.11"
+cpp = "0.5.9"
+
+[build-dependencies]
+# 构建build.rs使用的包，暂时用不到
+#cpp_build = "0.5.9" # 部分内容需要cpp编译
+#semver="1.0.18"
