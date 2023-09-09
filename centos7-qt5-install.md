@@ -1,6 +1,9 @@
 # centos7 qt安装
 1. 安装必要的依赖工具
 ```shell
+sudo yum update -y
+sudo yum install epel-release -y
+sudo yum -y groupinstall "Development Tools"
 sudo yum install -y clang gcc gcc-c++ cmake make llvm git openssl-devel zlib-devel automake
 sudo yum install -y glibc-static file libstdc++-static diffutils util-linux wget
 sudo sudo yum install -y gdb
@@ -74,12 +77,43 @@ reboot 重启centos7
 ```shell
 cd /usr/local/src
 sudo wget https://download.qt.io/archive/qt/5.14/5.14.2/qt-opensource-linux-x64-5.14.2.run
+sudo chmod +x qt-opensource-linux-x64-5.14.2.run
 sudo ./qt-opensource-linux-x64-5.14.2.run
 #如果遇到登陆，可以跳过
 ```
-配置环境变量
+
+或者直接通过yum安装
 ```shell
-export QT_HOME=/home/heige/Qt5.14.2/
-export PATH=QT_HOME/gcc_64/bin:$QT_HOME/Tools/QtCreator/bin/:$PATH
+sudo yum install -y qt5-qttools qt5-qttools-devel
+
+sudo yum install -y qt5-qtsvg-devel qt5-qtbase-devel qt5-qtdeclarative-devel qt5-qtxmlpatterns-devel qt5-qtmultimedia-devel qt5-qtscript-devel qt5-qttools-devel qt5-qtwebkit-devel qt5-qtx11extras-devel qt5-qtlocation-devel qt5-qtwebsockets-devel qt5-qtserialport-devel qt5-qtwebchannel-devel
+
+sudo yum install -y qt5-qtbase
+sudo yum install -y qt5-qtbase-devel
+sudo yum install -y qt5-qtquickcontrols2-devel
+sudo yum install qt5-qtquickcontrols qt5-qtdeclarative-devel -y
+sudo yum install -y qt5*
+```
+
+通过yum安装的qt5目录在 `/usr/lib64/qt5`
+查看安装的qmake路径
+```shell
+which qmake-qt5
+/usr/bin/qmake-qt5
+
+# 建立软链接
+ln -s /usr/bin/qmake-qt5 /usr/bin/qmake
+
+# 查看是否安装成功
+$ qmake -version
+QMake version 3.1
+Using Qt version 5.9.7 in /usr/lib64
+```
+
+7. 配置环境变量
+vim ~/.bash_profile
+```shell
+export QT_HOME=/usr/lib64/qt5
+export PATH="$QT_HOME/bin:$PATH"
 ```
 使配置生效 source ~/.bash_profile

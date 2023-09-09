@@ -6,7 +6,7 @@ https://doc.qt.io/qt-5/linux-building.html
 cd /usr/local/src
 sudo wget https://download.qt.io/archive/qt/5.15/5.15.5/single/qt-everywhere-opensource-src-5.15.5.tar.xz
 
-tar -vxf qt-everywhere-opensource-src-5.15.5.tar.xz
+sudo tar -vxf qt-everywhere-opensource-src-5.15.5.tar.xz
 cd ./qt-everywhere-opensource-src-5.15.5
 sudo ./configure
 sudo make && make install
