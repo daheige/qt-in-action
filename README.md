@@ -36,15 +36,22 @@ https://juejin.cn/post/7227624340232208443
 - cxx-qt架构设计，是非常漂亮且清晰的（强烈推荐）
 <img width="762" alt="image" src="https://github.com/daheige/qt-in-action/assets/9988859/f24e56f1-e129-46d0-a27b-2608b2ae69b3">
 
+# qmetaobject-rs
+- https://github.com/woboq/qmetaobject-rs
+- https://woboq.com/blog/qmetaobject-from-rust.html
+- https://lib.rs/crates/qmetaobject
+
 # 关于rust qt绑定选择
 - rust-qt目前只支持qt5版本，并且暂时没维护了
 - cxx-qt 目前最低支持qt5.15版本，它是KDAB出品的，跨平台支持linux,macos,windows等不同的操作系统，它支持cmake和cargo两种构建方式（cargo这种方式，通过rust cxx-qt-build工具生成c++代码，编译生成二进制文件），同时支持c/c++和rust相互调用和代码生成，Safe interop between Rust and Qt
 - gtk-rs 相对来说文档是比较全面的，gtk底层完全基于c语言编写的，跨平台，支持linux,mac os,windows等不同平台，目前gtk-rs目前已经到了[gtk4-rs](https://github.com/gtk-rs/gtk4-rs)
   开发文档 https://gtk-rs.org/gtk4-rs/stable/latest/book/introduction.html https://www.cnblogs.com/nsfoxer/p/16530314.html 是比较全面的。
+- qmetaobject-rs 它是一个qml+rust代码写qt项目的一个rust库。对于qml来说，支持js交互，同时它是一个rust qt框架，使每个人都可以用Rust创建Qt/QML应用程序。使用这个crate的开发人员，不需要输入任何c++代码，也不需要使用cargo之外的其他构建系统。
 
 综合对比
   - 推荐使用cxx-qt这个库，需要懂一些c/c++基础，比如说header头引入以及c++简单的语法，能看懂一部分c++代码（这块主要是qt接口函数，api调用需要）。
   - 另外，如果对于c有一定的基础，选择gtk-rs也是不错的选择，开发文档对于开发人员来说，非常友好，也值得推荐。
+  - 对于想用rust+qml语法以及js语言交互的开发人员来说，qmetaobject是一个非常不错的选择，构建方式是采用纯cargo的方式，构建出来的代码是安全的rust代码，满足了稳定性和可靠性。在性能这块，它避免任何不必要的转换或堆分配。
 
 # qml基础语法学习
 - https://zhuanlan.zhihu.com/p/645635569 QML语法——基础篇
