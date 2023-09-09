@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-qmetaobject="*"  # qmetaobject
+qmetaobject = "0.2.9"  # qmetaobject
 qttypes = { version = "0.2.9", features = [ "qtquick"] }
 cstr="0.2.11"
 cpp = "0.5.9"
