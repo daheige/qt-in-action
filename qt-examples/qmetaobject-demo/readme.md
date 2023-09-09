@@ -26,7 +26,6 @@ cpp = "0.5.9"
 - https://lib.rs/crates/qmetaobject
 
 # qmetaobject-rs 的优势
-https://github.com/woboq/qmetaobject-rs
 主要体现在下面几点：
 - 通过Rust过程宏(自定义派生)在编译时生成QMetaObject。
 - 主要Qt类型的绑定使用cpp!从CPP板条箱中的宏。
