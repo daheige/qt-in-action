@@ -45,3 +45,17 @@ https://juejin.cn/post/7227624340232208443
 综合对比
   - 推荐使用cxx-qt这个库，需要懂一些c/c++基础，比如说header头引入以及c++简单的语法，能看懂一部分c++代码（这块主要是qt接口函数，api调用需要）。
   - 另外，如果对于c有一定的基础，选择gtk-rs也是不错的选择，开发文档对于开发人员来说，非常友好，也值得推荐。
+
+# qml基础语法学习
+- https://zhuanlan.zhihu.com/p/645635569 QML语法——基础篇
+- https://zhuanlan.zhihu.com/p/634278695 QML 的基本语法
+- https://zhuanlan.zhihu.com/p/645889152 QML语法-对象篇(一)
+- https://zhuanlan.zhihu.com/p/645891774 QML语法-对象篇(二)
+- https://zhuanlan.zhihu.com/p/652515675 QML语法编程指南
+- https://zhuanlan.zhihu.com/p/624896235 QML调用函数
+
+# Qt6 QML Book
+https://zhuanlan.zhihu.com/p/517525413
+
+# 更多qt用法：
+https://www.zhihu.com/people/80-70-85-66/posts
