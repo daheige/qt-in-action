@@ -15,8 +15,8 @@ fn main() {
 
     let mut engine = QmlEngine::new();
     engine.load_data(r##"
-        import QtQuick 2.12;
-        import QtQuick.Window 2.12;
+        import QtQuick 2.0;
+        import QtQuick.Window 2.0;
         import qRustCode 1.0;
 
         Window {
