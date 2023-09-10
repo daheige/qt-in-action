@@ -1,12 +1,23 @@
 use cstr::cstr;
+use log::info;
 use qmetaobject::prelude::*;
-use std::env;
-use log::{info};
+// use std::env;
+
+// 配置资源文件qml
+// as前面的qml是文件目录，as后面的是虚拟路径
+qrc!(qml_resource,
+    "qml" as "qml" {
+        "cxx_hello.qml",
+    },
+);
 
 // 定义模块 my_object
 mod my_object;
 
 fn main() {
+    // 注册资源qml资源
+    qml_resource();
+
     // 日志level 优先级  error > warn > info > debug > trace
     // 如果这一行注释掉，运行时，可以设置  RUST_LOG=debug cargo run --bin cxx_hello
     // env::set_var("RUST_LOG", "debug"); // 手动设置日志级别环境变量
@@ -23,6 +34,6 @@ fn main() {
     qml_register_type::<my_object::Hello>(cstr!("qRustCode"), 1, 0, cstr!("Hello"));
     qml_register_type::<my_object::Rot>(cstr!("qRustCode"), 1, 0, cstr!("Rot"));
     let mut engine = QmlEngine::new();
-    engine.load_file(QString::from("qml/cxx_hello.qml"));
+    engine.load_file(QString::from("qrc:/qml/cxx_hello.qml"));
     engine.exec();
 }
