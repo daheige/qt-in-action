@@ -10,6 +10,12 @@ qmetaobject = "0.2.9"  # qmetaobject
 qttypes = { version = "0.2.9", features = [ "qtquick"] }
 cstr="0.2.11"
 cpp = "0.5.9"
+md5 = "0.7.0"
+
+# 使用qmetaobject-rs重写cxx_hello
+[[bin]]
+name = "cxx_hello"
+path = "src/cxx_hello.rs"
 
 [build-dependencies]
 # 构建build.rs使用的包，暂时用不到

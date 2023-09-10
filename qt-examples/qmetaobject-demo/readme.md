@@ -4,8 +4,223 @@
 - 它通过在编译时构建QMetaObjects、注册QML类型(QQmlExtensionPlugins使用是可选的，根据实际情况使用)和提供习惯的包装器来实现这一点。
 
 # qmetaobject-rs 实战demo
+https://github.com/daheige/qt-in-action/tree/main/qt-examples/qmetaobject-demo
+
+qml/main.qml
+```qml
+import QtQuick 2.12;
+import QtQuick.Window 2.12;
+
+// Import our Rust classes
+// 这个版本名称，必须和main.rs qml_register 注册的名称一样
+import qRustCode 1.0;
+
+Window {
+    visible: true
+    title: "Hello App"
+    height: 480
+    width: 640
+    color: "#e4af79"
+
+    Text {
+        anchors.centerIn: parent
+        text: "Hello! Bar is"+Options.Bar+", Foo is "+Options.Foo+", Quaz is "+Options.Quaz+"."
+    }
+}
+```
+main.rs
+```rust
+use cstr::cstr;
+use qmetaobject::prelude::*;
+use qttypes::QString;
+
+#[derive(Copy, Clone, Debug, Eq, PartialEq, QEnum)]
+#[repr(C)]
+enum Options {
+    Foo = 1,
+    Bar = 2,
+    Quaz = 3,
+}
+
+fn main() {
+    // 注册qml名字，版本号，传递给qml文件中rust enum变量
+    qml_register_enum::<Options>(cstr!("qRustCode"), 1, 0, cstr!("Options"));
+
+    let mut engine = QmlEngine::new();
+    engine.load_file(QString::from("qml/main.qml"));
+    engine.exec();
+}
+```
 https://github.com/daheige/qt-in-action/tree/main/qt-examples
 ![](qmetaobject-demo.png)
+
+# 采用qmetaobject重写cxx_hello
+1. 定义qml/cxx_hello.qml
+```qml
+import QtQuick 2.12;
+import QtQuick.Controls 2.12;
+import QtQuick.Window 2.12;
+// import QtQuick.Controls.Basic 2.12;
+
+// Import our Rust classes
+// 这个版本名称，必须和main.rs qml_register 注册的名称一样
+import qRustCode 1.0;
+
+Window {
+    visible: true
+    title: "Hello App"
+    height: 480
+    width: 640
+    color: "#e4af79"
+
+    // 自定义的Hello类型
+    Hello {
+        id: hello
+    }
+
+    // 自定义的Rot类型
+    Rot {
+        id: rot // 唯一标识
+        plain: ""
+        secret: ""
+    }
+
+    Column {
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        /* space between widget */
+        spacing: 10
+
+        // 实现say hello功能
+        Label {
+            text: "please click this button"
+            font.bold: true
+        }
+
+        Button {
+            text: "Say Hello!"
+            onClicked: {
+                // 支持js es5/es6语法
+                let name = "js";
+                console.log("name: ", name);
+
+                // 生成m-n的随机数字
+                let m = 1;
+                let n = 100;
+                let rnd = Math.floor(Math.random() * (n - m)) + m;
+                console.log("gen js random number: ", rnd);
+
+                // 调用Hello上面的say_hello方法
+                hello.say_hello();
+            }
+        }
+
+        // 实现md5加密功能
+        Label {
+            text: "please input text"
+            font.bold: true
+        }
+        TextArea {
+            placeholderText: qsTr("origin string")
+            text: rot.plain
+            onTextChanged: rot.plain = text
+            background: Rectangle {
+                implicitWidth: 400
+                implicitHeight: 50
+                radius: 3
+                color: "#e2e8f0"
+                border.color: "#21be2b"
+            }
+        }
+
+        Button {
+            text: "Md5 Encrypt"
+            onClicked: {
+                // js语法赋值操作
+                // console.log("plain: ", rot.plain);
+                let secret = rot.md5(rot.plain);
+                // console.log("secret: ", rot.secret);
+
+                // 赋值后，就会自动填充 Label 中的text
+                rot.secret = secret;
+            }
+        }
+
+        Label {
+            text: rot.secret
+        }
+    }
+}
+```
+2. 在Cargo.toml中添加如下内容：
+```toml
+# 使用qmetaobject-rs重写cxx_hello
+[[bin]]
+name = "cxx_hello"
+path = "src/cxx_hello.rs"
+```
+3. 在src目录下面新增cxx_hello.rs文件
+```rust
+use qttypes::QString;
+use qmetaobject::prelude::*;
+
+// 需要添加QObject trait
+#[derive(Default,QObject)]
+pub struct Hello {
+    // Specify the base class with the qt_base_class macro
+    base: qt_base_class!(trait QObject),
+    say_hello:qt_method!(fn(&self)->()), // 定义的say_hello方法
+}
+
+// 为 Hello 实现say_hello方法
+impl Hello {
+    pub fn say_hello(&self) {
+        println!("Hello world!");
+    }
+}
+
+#[derive(Default,QObject)]
+pub struct Rot {
+    // Specify the base class with the qt_base_class macro
+    base: qt_base_class!(trait QObject),
+
+    // 属性用 qt_property!包裹起来
+    name: qt_property!(QString; NOTIFY name_changed),
+    // Declare a signal
+    name_changed: qt_signal!(),
+
+    plain: qt_property!(QString; NOTIFY name_changed),
+    // Declare a signal
+    plain_changed: qt_signal!(),
+
+    secret: qt_property!(QString; NOTIFY secret_changed),
+    // Declare a signal
+    secret_changed: qt_signal!(),
+    md5:qt_method!(fn(&self, plain: String) -> QString)
+}
+
+impl Rot {
+    // 实现md5加密
+    pub fn md5(&self, plain: String) -> QString {
+        if plain.is_empty() {
+            return QString::from("plain is empty");
+        }
+
+        let digest = md5::compute(&plain);
+        let md5_str = format!("{:x}", digest); // 生成md5 string
+        println!("plain:{} md5 string:{}", plain, md5_str);
+        let result = format!("md5 string:{}", md5_str);
+        QString::from(result.as_str())
+    }
+}
+```
+
+4. 开始运行，执行如下命令
+```shell
+cargo run --bin cxx_hello # 就会启动一个窗口程序
+```
+运行效果如下：
+![](cxx_hello.png)
 
 # 官方地址
 https://github.com/woboq/qmetaobject-rs
