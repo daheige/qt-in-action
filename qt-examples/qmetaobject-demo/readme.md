@@ -323,14 +323,17 @@ cargo run --bin cxx_hello # 就会启动一个窗口程序
 ```shell
 % RUST_LOG=debug cargo run --bin cxx_hello
 ```
+日志输出效果：
+![](log-init.png)
 
 # 关于qt版本选择
 请尽量使用qt5.15+版本，因为js es6语法，需要5.14+版本，否则qml里面的let请依旧使用es5语法。
 
-# 官方地址
+# qmetaobject 官方地址
 https://github.com/woboq/qmetaobject-rs
 核心组成：
 ![](qmetaobject-core.png)
+
 在开发的时候，只需要依赖这几个crate:
 ```toml
 [dependencies]
