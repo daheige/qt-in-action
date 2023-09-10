@@ -1,5 +1,5 @@
 # cxx_hello
-    cxx-qt 完整的demo
+cxx-qt 完整的demo https://github.com/daheige/qt-in-action/tree/main/qt-examples/cxx_hello
 
 # cxx-qt 快速上手
 1. 创建一个rust应用
