@@ -152,6 +152,104 @@ Window {
     }
 }
 ```
+
+如果你使用的qt是5.9版本，那么qml/cxx_hello.qml如下：
+qml仅支持es5语法
+```qml
+import QtQuick 2.0;
+import QtQuick.Controls 2.0;
+import QtQuick.Window 2.0;
+
+// Import our Rust classes
+// 这个版本名称，必须和main.rs qml_register 注册的名称一样
+import qRustCode 1.0;
+
+Window {
+    visible: true
+    title: "Hello App"
+    height: 480
+    width: 640
+    color: "#e4af79"
+
+    // 自定义的Hello类型
+    Hello {
+        id: hello
+    }
+
+    // 自定义的Rot类型
+    Rot {
+        id: rot // 唯一标识
+        plain: ""
+        secret: ""
+    }
+
+    Column {
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        /* space between widget */
+        spacing: 10
+
+        // 实现say hello功能
+        Label {
+            text: "please click this button"
+            font.bold: true
+        }
+
+        Button {
+            text: "Say Hello!"
+            onClicked: {
+                // 支持js es5语法
+                var name = "js";
+                console.log("name: "+name);
+
+                // 生成m-n的随机数字
+                var m = 1;
+                var n = 100;
+                var rnd = Math.floor(Math.random() * (n - m)) + m;
+                console.log("gen js random number: "+rnd);
+
+                // 调用Hello上面的say_hello方法
+                hello.say_hello();
+            }
+        }
+
+        // 实现md5加密功能
+        Label {
+            text: "please input text"
+            font.bold: true
+        }
+        TextArea {
+            placeholderText: qsTr("origin string")
+            text: rot.plain
+            onTextChanged: rot.plain = text
+            background: Rectangle {
+                implicitWidth: 400
+                implicitHeight: 50
+                radius: 3
+                color: "#e2e8f0"
+                border.color: "#21be2b"
+            }
+        }
+
+        Button {
+            text: "Md5 Encrypt"
+            onClicked: {
+                // js语法赋值操作
+                // console.log("plain: ", rot.plain);
+                var secret = rot.md5(rot.plain);
+                // console.log("secret: ", rot.secret);
+
+                // 赋值后，就会自动填充 Label 中的text
+                rot.secret = secret;
+            }
+        }
+
+        Label {
+            text: rot.secret
+        }
+    }
+}
+```
 2. 在Cargo.toml中添加如下内容：
 ```toml
 # 使用qmetaobject-rs重写cxx_hello
@@ -221,6 +319,9 @@ cargo run --bin cxx_hello # 就会启动一个窗口程序
 ```
 运行效果如下：
 ![](cxx_hello.png)
+
+# 关于qt版本选择
+请尽量使用qt5.15+版本，因为js es6语法，需要5.14+版本，否则qml里面的let请依旧使用es5语法。
 
 # 官方地址
 https://github.com/woboq/qmetaobject-rs
