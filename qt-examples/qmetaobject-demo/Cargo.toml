@@ -17,6 +17,10 @@ md5 = "0.7.0"
 name = "cxx_hello"
 path = "src/cxx_hello.rs"
 
+[[bin]]
+name = "no_qml_hello"
+path = "src/no_qml_hello.rs"
+
 [build-dependencies]
 # 构建build.rs使用的包，暂时用不到
 #cpp_build = "0.5.9" # 部分内容需要cpp编译
