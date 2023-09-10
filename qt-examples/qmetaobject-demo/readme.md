@@ -154,7 +154,7 @@ Window {
 ```
 
 如果你使用的qt是5.9版本，那么qml/cxx_hello.qml如下：
-qml仅支持es5语法
+因为qt5.14以下版本，js操作仅支持es5语法。
 ```qml
 import QtQuick 2.0;
 import QtQuick.Controls 2.0;
