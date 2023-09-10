@@ -11,6 +11,8 @@ qttypes = { version = "0.2.9", features = [ "qtquick"] }
 cstr="0.2.11"
 cpp = "0.5.9"
 md5 = "0.7.0"
+log = "0.4.20"
+env_logger = "0.10.0"
 
 # 使用qmetaobject-rs重写cxx_hello
 [[bin]]

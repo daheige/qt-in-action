@@ -319,6 +319,10 @@ cargo run --bin cxx_hello # 就会启动一个窗口程序
 ```
 运行效果如下：
 ![](cxx_hello.png)
+日志级别最低设置为debug运行：
+```shell
+% RUST_LOG=debug cargo run --bin cxx_hello
+```
 
 # 关于qt版本选择
 请尽量使用qt5.15+版本，因为js es6语法，需要5.14+版本，否则qml里面的let请依旧使用es5语法。
