@@ -1,32 +1,42 @@
 # mac os qt6 install
+
 ```shell
-brew install qt
+brew install qt6
 brew install qt-creator # 可选，如果需要用c++开发qt项目，就需要安装qt-creator
 ```
+
 当看到下面这个表示安装好了
+
 ```
 ==> Installing Cask qt-creator
 ==> Moving App 'Qt Creator.app' to '/Applications/Qt Creator.app'
 🍺  qt-creator was successfully installed!
 ```
-安装好的目录在：`/usr/local/Cellar/qt`中
-brew安装的qt版本也有可能是高版本，更具对应的目录执行 env setting，比如说下面的版本
+
+安装好的qt目录在：`/usr/local/Cellar/qt`中
+brew安装的qt版本也有可能是高版本，在对应的目录执行ls命令查看Qt版本，如下所示：
+
 ```shell
 % ls
 6.5.1_3
 ```
+
 ## 安装qt必要的工具链
+
 ```shell
 brew install llvm cmake make gcc mold clang-format
 ```
 
 ## qt link 绑定
+
 这一步需要做，不然cxx-qt找不到qt相关的路径
+
 ```shell
 brew link qt
 ```
 
 # 设置 qt 相关的环境变量
+
 vim ~/.bash_profile
 
 ```shell
@@ -54,10 +64,12 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 ```
 
 保存:wq 之后，再执行如下命令生效
+
 ```shell
 source ~/.bash_profile
 ```
 
 # qt-creator 配置（可选）
+
 如果需要用c++开发qt项目，就需要qt link
 打开qt-creator填写qt安装路径`/usr/local/Cellar/qt/6.5.1_3`就完成了qt link设置
