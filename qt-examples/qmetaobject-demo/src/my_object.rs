@@ -46,7 +46,7 @@ impl Rot {
         let digest = md5::compute(&plain);
         let md5_str = format!("{:x}", digest); // 生成md5 string
         println!("plain:{} md5 string:{}", plain, md5_str);
-        let result = format!("md5 string:{}", md5_str);
+        let result = format!("{}", md5_str);
         QString::from(result.as_str())
     }
 }

@@ -87,8 +87,19 @@ Window {
             }
         }
 
-        Label {
+        // Label {
+        //     text: rot.secret
+        // }
+        TextArea {
+            placeholderText: qsTr("md5 value")
             text: rot.secret
+            background: Rectangle {
+                implicitWidth: 400
+                implicitHeight: 50
+                radius: 3
+                color: "#e2e8f0"
+                border.color: "#21be2b"
+            }
         }
     }
 }
